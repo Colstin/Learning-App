@@ -8,8 +8,14 @@
 import Foundation
 
 class ContentModel: ObservableObject{
-    
+    // List of Modules
     @Published var modules = [Module]()
+    
+    // Current Module
+    @Published var currentModule: Module?
+    var currentModuleIndex = 0
+    
+    
     
     var styleData:Data?
     
@@ -18,6 +24,8 @@ class ContentModel: ObservableObject{
         getLocalData()
     }
     
+    
+    // MARK: Darta Methods
     func getLocalData(){
         //1. Get a URL/ file path to json file .. Bundle.main.url(forResource: "Data", withExtension: "json")
         //2. Read file into a data object...  Data(contentsOf: url)
@@ -51,4 +59,22 @@ class ContentModel: ObservableObject{
             print(error)
         }
     }
+    
+    // MARK: Module navigation methods
+    func beginModule(_ moduleid:Int){
+        // Find the  index for this module id
+        for i in 0..<modules.count{
+            if modules[i].id == moduleid {
+                // found the matching module
+                currentModuleIndex = i
+                break
+            }
+        }
+        
+        
+        // Set the current module
+        
+        currentModule = modules[currentModuleIndex]
+    }
+    
 }
