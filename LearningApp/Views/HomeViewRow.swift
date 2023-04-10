@@ -14,6 +14,7 @@ struct HomeViewRow: View {
     var description:String
     var count:String
     var time:String
+    //var model:Module
     
     var body: some View {
         ZStack{
@@ -61,6 +62,10 @@ struct HomeViewRow: View {
 
 struct HomeViewRow_Previews: PreviewProvider {
     static var previews: some View {
-        HomeViewRow(image: "swift", title: "Learn swift", description: "description", count: "20 lesson", time: "20 hours")
+       HomeViewRow(image: "swift", title: "Learn swift", description: "description", count: "20 lesson", time: "20 hours")
+        /*
+        let model = ContentModel()
+        HomeViewRow(model: model.modules[0])
+         */
     }
 }

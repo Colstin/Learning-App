@@ -15,7 +15,7 @@ struct HomeView: View {
        
         
         
-        NavigationView {
+        NavigationStack {
             VStack(alignment: .leading) {
                 Text("What do you want to do today?")
                     .padding(.leading)
@@ -48,6 +48,7 @@ struct HomeView: View {
             }
             .navigationTitle("Get Started")
         }
+        //.navigationViewStyle(.stack)
         
     }
 }
