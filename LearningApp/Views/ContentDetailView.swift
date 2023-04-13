@@ -44,6 +44,20 @@ struct ContentDetailView: View {
                         
                     }
                 }
+            } else {
+                Button(){
+                    
+                } label: {
+                    ZStack {
+                        Rectangle()
+                            .frame(height: 48)
+                            .foregroundColor(.green)
+                            .cornerRadius(10)
+                            .shadow(radius: 5)
+                        
+                        Text("Hi")
+                    }
+                }
             }
         }
         .padding()

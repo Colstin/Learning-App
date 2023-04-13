@@ -21,25 +21,32 @@ struct HomeView: View {
                     .padding(.leading)
                 
                 ScrollView{
-                    LazyVStack{
+                    LazyVStack{ 
                         ForEach(model.modules){ module in
                             //learning card
                             VStack(spacing: 20) {
                                 NavigationLink {
                                     ContentView()
-                                        .onAppear {
+                                       .onAppear {
                                             model.beginModule(module.id)
-                                        }
+                                            print(module.id)
+                                           
+                                        } 
                                 } label: {
                                     HomeViewRow(image: module.content.image, title: "Learn \(module.category)", description: module.content.description, count: "\(module.content.lessons.count) lessons", time: module.content.time)
                                 }
                                 .foregroundColor(.black)
                                 
-                                
-                               
-                                
-                                // test card
-                                HomeViewRow(image: module.test.image, title: "Learn \(module.category) Test", description: module.test.description, count: "\(module.test.questions.count) lessons", time: module.test.time)
+                                NavigationLink {
+                                    ContentView()
+                                        .onAppear {
+                                            model.beginModule(module.id)
+                                           
+                                        }
+                                } label: {
+                                    // test card
+                                    HomeViewRow(image: module.test.image, title: "Learn \(module.category) Test", description: module.test.description, count: "\(module.test.questions.count) lessons", time: module.test.time)
+                                }
                             }
                         }
                     }
@@ -60,3 +67,5 @@ struct HomeView_Previews: PreviewProvider {
 
     }
 }
+
+// fix homeViewRow so were just calling it. 
