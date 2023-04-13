@@ -14,7 +14,7 @@ struct ContentViewRow: View {
     
     var body: some View {
         let lesson = model.currentModule!.content.lessons[index]
-        
+       
         //lesson card
         ZStack(alignment: .leading){
             Rectangle()

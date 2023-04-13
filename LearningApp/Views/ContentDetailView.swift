@@ -15,7 +15,9 @@ struct ContentDetailView: View {
     var body: some View {
         
         let lesson = model.currentLesson
+        //let mp4 = "Learn%20Swift%20for%20Beginners%20Lesson%201%20-%20Variables%20(Swift%205%20compatible)-2OZ07fklur8.mp4"
         let url = URL(string: Constants.videoHostUrl + (lesson?.video ?? ""))
+        //let url = URL(string: Constants.videoHostUrl + mp4)
         VStack{
             if url != nil {
                 VideoPlayer(player: AVPlayer(url: url!))
@@ -55,7 +57,7 @@ struct ContentDetailView: View {
                             .cornerRadius(10)
                             .shadow(radius: 5)
                         
-                        Text("Hi")
+                        Text("Complete")
                     }
                 }
             }

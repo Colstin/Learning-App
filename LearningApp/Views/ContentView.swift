@@ -13,33 +13,31 @@ struct ContentView: View {
     
     var body: some View {
        
-        ScrollView{
-            LazyVStack{
-                if model.currentModule != nil {
-                    ForEach(0..<model.currentModule!.content.lessons.count, id: \.self){ index in
-                        
-                        NavigationLink {
-                            ContentDetailView()
-                                .onAppear(){
-                                    model.beginLesson(index)
-                                }
-                        } label: {
-                            ContentViewRow(index: index)
+        NavigationStack {
+            ScrollView{
+                LazyVStack{
+                    if model.currentModule != nil {
+                        ForEach(0..<model.currentModule!.content.lessons.count, id: \.self){ index in
+                            
+                            
+                            NavigationLink {
+                                ContentDetailView()
+                                    .onAppear(){
+                                        model.beginLesson(index)
+                                    }
+                            } label: {
+                                ContentViewRow(index: index)
+                            }
                         }
-
-                     
                     }
                 }
             }
-            .foregroundColor(.black)
-            .padding()
-            .navigationTitle("Learn \(model.currentModule?.category ?? "")")
         }
+        .foregroundColor(.black)
         
     }
 }
 /*
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
@@ -47,3 +45,5 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 */
+
+

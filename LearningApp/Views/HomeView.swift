@@ -10,10 +10,9 @@ import SwiftUI
 struct HomeView: View {
     
     @EnvironmentObject var model:ContentModel
+    @State var navPath = NavigationPath()
     
     var body: some View {
-       
-        
         
         NavigationStack {
             VStack(alignment: .leading) {
@@ -25,13 +24,14 @@ struct HomeView: View {
                         ForEach(model.modules){ module in
                             //learning card
                             VStack(spacing: 20) {
-                                NavigationLink {
+                                //MARK: LEARN SWIFT
+                                NavigationLink{
                                     ContentView()
                                        .onAppear {
                                             model.beginModule(module.id)
-                                            print(module.id)
+                                            //print(module.id)
                                            
-                                        } 
+                                        }
                                 } label: {
                                     HomeViewRow(image: module.content.image, title: "Learn \(module.category)", description: module.content.description, count: "\(module.content.lessons.count) lessons", time: module.content.time)
                                 }
@@ -55,8 +55,6 @@ struct HomeView: View {
             }
             .navigationTitle("Get Started")
         }
-        //.navigationViewStyle(.stack)
-        
     }
 }
 
