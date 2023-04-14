@@ -12,6 +12,7 @@ struct ContentDetailView: View {
     
     @EnvironmentObject var model: ContentModel
     
+    
     var body: some View {
         
         let lesson = model.currentLesson

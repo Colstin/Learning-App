@@ -9,13 +9,11 @@ import SwiftUI
 
 struct ContentViewRow: View {
     
-    @EnvironmentObject var model: ContentModel
-    var index:Int
+    var model: Lesson
     
     var body: some View {
-        let lesson = model.currentModule!.content.lessons[index]
        
-        //lesson card
+        //MARK: lesson card
         ZStack(alignment: .leading){
             Rectangle()
                 .foregroundColor(.white)
@@ -24,12 +22,14 @@ struct ContentViewRow: View {
                 .frame(height: 66)
             
             HStack(spacing: 30){
-                Text(String(index + 1))
+                Text(String(model.id + 1))
                     .bold()
                 
                 VStack(alignment: .leading){
-                    Text(lesson.title)
-                    Text(lesson.duration)
+                    Text(model.title)
+                        .font(.title3)
+                        .bold()
+                    Text(model.duration)
                 }
             }
             .padding()
@@ -43,3 +43,4 @@ struct ContentViewRow_Previews: PreviewProvider {
     }
 }
 */
+

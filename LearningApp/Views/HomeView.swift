@@ -26,23 +26,19 @@ struct HomeView: View {
                             VStack(spacing: 20) {
                                 //MARK: LEARN SWIFT
                                 NavigationLink{
-                                    ContentView()
-                                       .onAppear {
-                                            model.beginModule(module.id)
-                                            //print(module.id)
-                                           
+                                    ContentView(module: module)
+                                        .onAppear(){
+                                            print(module.id)
                                         }
+                                 
                                 } label: {
                                     HomeViewRow(image: module.content.image, title: "Learn \(module.category)", description: module.content.description, count: "\(module.content.lessons.count) lessons", time: module.content.time)
                                 }
                                 .foregroundColor(.black)
                                 
                                 NavigationLink {
-                                    ContentView()
-                                        .onAppear {
-                                            model.beginModule(module.id)
-                                           
-                                        }
+                                    ContentView(module: module)
+                                 
                                 } label: {
                                     // test card
                                     HomeViewRow(image: module.test.image, title: "Learn \(module.category) Test", description: module.test.description, count: "\(module.test.questions.count) lessons", time: module.test.time)
@@ -66,4 +62,3 @@ struct HomeView_Previews: PreviewProvider {
     }
 }
 
-// fix homeViewRow so were just calling it. 

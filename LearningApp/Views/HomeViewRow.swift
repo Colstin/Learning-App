@@ -14,7 +14,7 @@ struct HomeViewRow: View {
     var description:String
     var count:String
     var time:String
-    //var model:Module
+    //var model:Content
     
     var body: some View {
         ZStack{

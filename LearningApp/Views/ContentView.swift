@@ -9,42 +9,33 @@ import SwiftUI
 
 struct ContentView: View {
     
-   @EnvironmentObject var model: ContentModel
+    var module: Module
     
     var body: some View {
-       
+        
         NavigationStack {
             ScrollView{
                 LazyVStack{
-                    if model.currentModule != nil {
-                        ForEach(0..<model.currentModule!.content.lessons.count, id: \.self){ index in
-                            
-                            
-                            NavigationLink {
-                                ContentDetailView()
-                                    .onAppear(){
-                                        model.beginLesson(index)
-                                    }
-                            } label: {
-                                ContentViewRow(index: index)
-                            }
-                        }
+                    ForEach(module.content.lessons){ lesson in
+                        
+                        NavigationLink {
+                            ContentDetailView()
+                        } label: {
+                            ContentViewRow(model: lesson)
+                        } 
                     }
                 }
                 .padding()
             }
-        }
-        .foregroundColor(.black)
-        
+            .foregroundColor(.black)
+            .navigationTitle("Learn swift")
+       }
     }
 }
-/*
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-            .environmentObject(ContentModel())
+        let previewModel = ContentModel()
+        ContentView(module: previewModel.modules[0])
     }
 }
-*/
-
-
