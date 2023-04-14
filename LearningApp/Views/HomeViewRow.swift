@@ -4,7 +4,7 @@
 //
 //  Created by Colstin Donaldson on 4/7/23.
 //
-
+// This is a blank ViewRow rather than assigning it to a model because if we assine to a model we would have to create multiple view rows for each model so this is the least redundant of the options.
 import SwiftUI
 
 struct HomeViewRow: View {

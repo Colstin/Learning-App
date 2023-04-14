@@ -10,6 +10,7 @@ import SwiftUI
 struct CodeTextView: UIViewRepresentable {
     
     @EnvironmentObject var model: ContentModel
+    //var model: Lesson
    
     func makeUIView(context: Context) -> UITextView{
         let textView = UITextView()
@@ -25,11 +26,12 @@ struct CodeTextView: UIViewRepresentable {
     }
     
 }
-
+/*
 struct CodeTextView_Previews: PreviewProvider {
     static var previews: some View {
         CodeTextView()
-            .environmentObject(ContentModel())
+            //.environmentObject(ContentModel())
 
     }
 }
+*/

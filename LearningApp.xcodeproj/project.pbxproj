@@ -22,6 +22,7 @@
 		D6998AE029E0A0D20054A5D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6998ADF29E0A0D20054A5D9 /* Assets.xcassets */; };
 		D6998AE329E0A0D20054A5D9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6998AE229E0A0D20054A5D9 /* Preview Assets.xcassets */; };
 		D6998AF029E0A2E50054A5D9 /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6998AEF29E0A2E50054A5D9 /* ContentModel.swift */; };
+		D6C5CA3829E9F5B50054CC8B /* TestDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C5CA3729E9F5B50054CC8B /* TestDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		D6998AE229E0A0D20054A5D9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D6998AEE29E0A1D50054A5D9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D6998AEF29E0A2E50054A5D9 /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
+		D6C5CA3729E9F5B50054CC8B /* TestDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				D6169E9F29E0F36F0093AF70 /* HomeViewRow.swift */,
 				D678983E29E1FAD800EC6E11 /* ContentView.swift */,
 				D678984029E2046900EC6E11 /* ContentViewRow.swift */,
+				D6C5CA3729E9F5B50054CC8B /* TestDetailView.swift */,
 				D678984429E35B8900EC6E11 /* ContentDetailView.swift */,
 				D678986C29E4846B00EC6E11 /* CodeTextView.swift */,
 			);
@@ -233,6 +236,7 @@
 				D6998AF029E0A2E50054A5D9 /* ContentModel.swift in Sources */,
 				D68710CD29E0B10D0048F30E /* Models.swift in Sources */,
 				D678984A29E35FE000EC6E11 /* Constants.swift in Sources */,
+				D6C5CA3829E9F5B50054CC8B /* TestDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

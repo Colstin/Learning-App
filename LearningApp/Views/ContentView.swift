@@ -17,9 +17,8 @@ struct ContentView: View {
             ScrollView{
                 LazyVStack{
                     ForEach(module.content.lessons){ lesson in
-                        
                         NavigationLink {
-                            ContentDetailView()
+                            TestDetailView(model: lesson)
                         } label: {
                             ContentViewRow(model: lesson)
                         } 

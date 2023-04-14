@@ -37,7 +37,7 @@ struct HomeView: View {
                                 .foregroundColor(.black)
                                 
                                 NavigationLink {
-                                    ContentView(module: module)
+                                    //ContentView(module: module)
                                  
                                 } label: {
                                     // test card
@@ -58,7 +58,9 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
             .environmentObject(ContentModel())
-
     }
 }
 
+/* to do:
+ 1. finish parsing CodeTextView() onto our DetailView
+ */
