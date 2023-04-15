@@ -9,14 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     
-    var module: Module
+    var model: Module
     
     var body: some View {
         
         NavigationStack {
             ScrollView{
                 LazyVStack{
-                    ForEach(module.content.lessons){ lesson in
+                    ForEach(model.content.lessons){ lesson in
                         NavigationLink {
                             TestDetailView(model: lesson)
                         } label: {
@@ -35,6 +35,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let previewModel = ContentModel()
-        ContentView(module: previewModel.modules[0])
+        ContentView(model: previewModel.modules[0])
     }
 }

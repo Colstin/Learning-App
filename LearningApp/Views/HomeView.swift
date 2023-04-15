@@ -26,7 +26,7 @@ struct HomeView: View {
                             VStack(spacing: 20) {
                                 //MARK: LEARN SWIFT
                                 NavigationLink{
-                                    ContentView(module: module)
+                                    ContentView(model: module)
                                         .onAppear(){
                                             print(module.id)
                                         }
@@ -34,7 +34,7 @@ struct HomeView: View {
                                 } label: {
                                     HomeViewRow(image: module.content.image, title: "Learn \(module.category)", description: module.content.description, count: "\(module.content.lessons.count) lessons", time: module.content.time)
                                 }
-                                .foregroundColor(.black)
+                               
                                 
                                 NavigationLink {
                                     //ContentView(module: module)
@@ -50,6 +50,7 @@ struct HomeView: View {
                 }
             }
             .navigationTitle("Get Started")
+            .foregroundColor(.black)
         }
     }
 }
@@ -63,4 +64,5 @@ struct HomeView_Previews: PreviewProvider {
 
 /* to do:
  1. finish parsing CodeTextView() onto our DetailView
+ 2. Start with navigation path
  */

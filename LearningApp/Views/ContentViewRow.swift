@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentViewRow: View {
     
-    var model: Lesson
+    var model:Lesson
     
     var body: some View {
        

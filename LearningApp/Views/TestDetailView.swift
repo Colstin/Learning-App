@@ -10,7 +10,7 @@ import AVKit
 
 struct TestDetailView: View {
     
-    var model: Lesson
+    var model:Lesson
     
     var body: some View {
         let url = URL(string: Constants.videoHostUrl + model.video)
@@ -57,8 +57,9 @@ struct TestDetailView: View {
 struct TestDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let previewModel = ContentModel()
-        TestDetailView(model: previewModel.modules.lessons[1])
+        TestDetailView_Previews(model:)
    
     }
 }
+
 */
