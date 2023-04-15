@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         
-        NavigationStack {
+        NavigationStack{
             ScrollView{
                 LazyVStack{
                     ForEach(model.content.lessons){ lesson in

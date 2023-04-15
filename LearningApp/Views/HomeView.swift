@@ -10,11 +10,10 @@ import SwiftUI
 struct HomeView: View {
     
     @EnvironmentObject var model:ContentModel
-    @State var navPath = NavigationPath()
     
     var body: some View {
         
-        NavigationStack {
+        NavigationStack(path: $model.path ) {
             VStack(alignment: .leading) {
                 Text("What do you want to do today?")
                     .padding(.leading)
@@ -28,7 +27,7 @@ struct HomeView: View {
                                 NavigationLink{
                                     ContentView(model: module)
                                         .onAppear(){
-                                            print(module.id)
+                                           // print(module.id)
                                         }
                                  
                                 } label: {
@@ -37,8 +36,7 @@ struct HomeView: View {
                                
                                 
                                 NavigationLink {
-                                    //ContentView(module: module)
-                                 
+                                     SwiftTestView()
                                 } label: {
                                     // test card
                                     HomeViewRow(image: module.test.image, title: "Learn \(module.category) Test", description: module.test.description, count: "\(module.test.questions.count) lessons", time: module.test.time)

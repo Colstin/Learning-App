@@ -6,10 +6,16 @@
 //
 
 import Foundation
+import SwiftUI
 
 class ContentModel: ObservableObject{
     // List of Modules
     @Published var modules = [Module]()
+    
+    @Published var path = NavigationPath()
+    @Published var titles = [String]()
+    @Published var lessonByTitle = [String:Lesson]()
+    
     
     // Current Module
     @Published var currentModule: Module?
@@ -65,6 +71,13 @@ class ContentModel: ObservableObject{
             print(error)
         }
     }
+    
+    //MARK: Go home button
+    func gotoHomePage() {
+           path.removeLast(path.count)
+       }
+    
+    
     
     // MARK: Module navigation methods
     func beginModule(_ moduleid:Int){
