@@ -16,13 +16,15 @@ struct ContentView: View {
         
        NavigationStack(path: $contentModel.path ){
             ScrollView{
-                LazyVStack{
+                VStack{
                     ForEach(model.content.lessons){ lesson in
                         NavigationLink(value: lesson) {
                             ContentViewRow(model: lesson)
+                            
                         }
                         .navigationDestination(for: Lesson.self) { lesson in
                             ContentDetailView(model: lesson)
+                          
                         }
                     }
                 }

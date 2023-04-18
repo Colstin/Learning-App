@@ -41,7 +41,7 @@ struct ContentDetailView: View {
                         .cornerRadius(10)
                         .shadow(radius: 5)
                     
-                    Text("Next Lesson \(model.title)")
+                    Text("Next Lesson")
                         .foregroundColor(.white)
                         .bold()
                     

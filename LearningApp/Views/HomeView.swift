@@ -34,7 +34,6 @@ struct HomeView: View {
                 }
             }
             .navigationTitle("Choose Your Course!")
-            
        }
     }
 }
