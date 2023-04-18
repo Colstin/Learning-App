@@ -12,7 +12,7 @@ import AVKit
 
 struct ContentDetailView: View {
     
-    @EnvironmentObject var viewModel:ContentModel
+    @EnvironmentObject var contentModel:ContentModel
     var model:Lesson
     
     var body: some View {

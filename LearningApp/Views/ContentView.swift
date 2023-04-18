@@ -27,17 +27,16 @@ struct ContentView: View {
                             VStack {
                                 ContentDetailView(model: lesson)//.navigationBarBackButtonHidden()
                                 
-                                if lesson.id < 9{
+                                if lesson.id < (model.content.lessons.count - 1){
                                     Button("Go Home"){
                                         contentModel.gotoHomePage()
                                     }
                                     
-                                    //MARK: NEXT LESSON BUTTON
+                                    //MARK: NEXT-LESSON BUTTON
                                     Button{
                                         //print(lesson.id)
                                         let lessonPath = model.content.lessons[(lesson.id + 1)]
                                         contentModel.path.append(lessonPath)
-                                        
                                         
                                     } label: {
                                         ZStack {
@@ -55,6 +54,7 @@ struct ContentView: View {
                                     
                                     
                                 } else {
+                                    //MARK: Complete Button
                                     Button{
                                         contentModel.gotoHomePage()
                                     } label: {
