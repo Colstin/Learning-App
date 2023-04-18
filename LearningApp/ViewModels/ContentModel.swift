@@ -13,7 +13,7 @@ class ContentModel: ObservableObject{
     @Published var modules = [Module]()
     
     @Published var path = NavigationPath()
-    @Published var path2 = NavigationPath()
+
     
     //Current lesson explanation
     @Published var lessonDescription = NSAttributedString()
@@ -78,6 +78,11 @@ class ContentModel: ObservableObject{
     func gotoNextItem(_ navItem:Int){
         path.append(modules[navItem])
     }
+    
+    func gotoNextItem2() {
+        path.append(modules.randomElement()!)
+    }
+    
     
     /*
     

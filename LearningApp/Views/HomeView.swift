@@ -13,7 +13,7 @@ struct HomeView: View {
     
     var body: some View {
         
-       NavigationStack {
+       NavigationView {
             ScrollView{
                 ForEach(contentModel.modules){ module in
                     VStack(spacing: 20) {
@@ -30,6 +30,7 @@ struct HomeView: View {
                             HomeViewRow(image: module.test.image, category: "\(module.category) Test", description: module.test.description, lesson: module.test.questions.count, time: module.test.time)
                              
                         }
+                        
                     }
                 }
             }

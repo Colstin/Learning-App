@@ -23,8 +23,59 @@ struct ContentView: View {
                             
                         }
                         .navigationDestination(for: Lesson.self) { lesson in
-                            ContentDetailView(model: lesson)
-                          
+                            //hides back bar on detail View
+                            VStack {
+                                ContentDetailView(model: lesson)//.navigationBarBackButtonHidden()
+                                
+                                if lesson.id < 9{
+                                    Button("Go Home"){
+                                        contentModel.gotoHomePage()
+                                    }
+                                    
+                                    //MARK: NEXT LESSON BUTTON
+                                    Button{
+                                        //print(lesson.id)
+                                        let lessonPath = model.content.lessons[(lesson.id + 1)]
+                                        contentModel.path.append(lessonPath)
+                                        
+                                        
+                                    } label: {
+                                        ZStack {
+                                            Rectangle()
+                                                .frame(height: 48)
+                                                .foregroundColor(.green)
+                                                .cornerRadius(10)
+                                                .shadow(radius: 5)
+                                            
+                                            Text("Next Lesson")
+                                                .foregroundColor(.white)
+                                                .bold()
+                                        }
+                                    }
+                                    
+                                    
+                                } else {
+                                    Button{
+                                        contentModel.gotoHomePage()
+                                    } label: {
+                                        ZStack {
+                                            Rectangle()
+                                                .frame(height: 48)
+                                                .foregroundColor(.green)
+                                                .cornerRadius(10)
+                                                .shadow(radius: 5)
+                                            
+                                            Text("Complete")
+                                                .foregroundColor(.white)
+                                                .bold()
+                                        }
+
+                                    }
+                                }
+                               
+                                
+                               
+                            }
                         }
                     }
                 }
@@ -32,8 +83,16 @@ struct ContentView: View {
             }
             .foregroundColor(.black)
             .navigationTitle("Learn swift")
+            
        }
+        // hides Main Menu back bar on contentView (the List view)
+        .navigationBarBackButtonHidden()
+        
+      
     }
+    
+    
+    
 }
 /*
 struct ContentView_Previews: PreviewProvider {

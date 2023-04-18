@@ -30,23 +30,7 @@ struct ContentDetailView: View {
             .padding(.top)
             
             
-            Button {
-               viewModel.gotoHomePage()
-                
-            } label: {
-                ZStack {
-                    Rectangle()
-                        .frame(height: 48)
-                        .foregroundColor(.green)
-                        .cornerRadius(10)
-                        .shadow(radius: 5)
-                    
-                    Text("Next Lesson")
-                        .foregroundColor(.white)
-                        .bold()
-                    
-                }
-            }
+           
         }
         .navigationTitle(model.title)
         .padding()
