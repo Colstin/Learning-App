@@ -14,14 +14,16 @@ struct HomeView: View {
     var body: some View {
         
        NavigationView {
-            ScrollView{
+           ScrollView{
                 ForEach(contentModel.modules){ module in
                     VStack(spacing: 20) {
                         NavigationLink{
                             ContentView(model: module)
-                        } label: {
+                        } label:  {
                             HomeViewRow(image: module.content.image, category: "Learn \(module.category)", description: module.content.description, lesson: module.content.lessons.count, time: module.content.time)
+                            
                         }
+                        .padding(.top)
                         
                         
                         NavigationLink {
@@ -35,6 +37,7 @@ struct HomeView: View {
                 }
             }
             .navigationTitle("Choose Your Course!")
+            .navigationBarTitleDisplayMode(.inline)
        }
     }
 }

@@ -11,6 +11,7 @@ struct ContentView: View {
     
     @EnvironmentObject var contentModel:ContentModel
     var model: Module
+    @State var isNavigationBarHidden = false
     
     var body: some View {
         
@@ -20,13 +21,20 @@ struct ContentView: View {
                     ForEach(model.content.lessons){ lesson in
                         NavigationLink(value: lesson) {
                             ContentViewRow(model: lesson)
-                            
+                                .onAppear(){
+                                   isNavigationBarHidden = false
+                                }
                         }
                         .navigationDestination(for: Lesson.self) { lesson in
-                            //hides back bar on detail View
+                           
                             VStack {
-                                ContentDetailView(model: lesson)//.navigationBarBackButtonHidden()
+                                //hides back bar on detail View
+                                ContentDetailView(model: lesson)
+                                    .onAppear(){
+                                        isNavigationBarHidden = true
+                                    }
                                 
+                                //MARK: Nav Button Functionality
                                 if lesson.id < (model.content.lessons.count - 1){
                                     Button("Go Home"){
                                         contentModel.gotoHomePage()
@@ -52,7 +60,6 @@ struct ContentView: View {
                                         }
                                     }
                                     
-                                    
                                 } else {
                                     //MARK: Complete Button
                                     Button{
@@ -69,13 +76,11 @@ struct ContentView: View {
                                                 .foregroundColor(.white)
                                                 .bold()
                                         }
-
                                     }
                                 }
-                               
-                                
-                               
                             }
+                            .padding()
+                            //.navigationBarBackButtonHidden()
                         }
                     }
                 }
@@ -83,16 +88,13 @@ struct ContentView: View {
             }
             .foregroundColor(.black)
             .navigationTitle("Learn swift")
+            .navigationBarTitleDisplayMode(.inline)
             
        }
         // hides Main Menu back bar on contentView (the List view)
-        .navigationBarBackButtonHidden()
-        
-      
+       .navigationBarBackButtonHidden(isNavigationBarHidden)
+
     }
-    
-    
-    
 }
 /*
 struct ContentView_Previews: PreviewProvider {

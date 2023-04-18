@@ -29,11 +29,13 @@ struct ContentDetailView: View {
             }
             .padding(.top)
             
-            
+            //MARK: Redability I am going to keep Buttons on ContentView screen
+            // That way it's much easier to go back on the code later on 
            
         }
         .navigationTitle(model.title)
         .padding()
+        .padding(.top, 30)
     }
 }
 
