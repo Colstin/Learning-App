@@ -3,25 +3,27 @@
 //  LearningApp
 //
 //  Created by Colstin Donaldson on 4/8/23.
-//MARK: This will show the list of lessons or test after you click on one of the HomeView options
+//MARK: This is generating a list of Lessons from the Module Model 
 
 import SwiftUI
 
 struct ContentView: View {
     
+    @EnvironmentObject var contentModel:ContentModel
     var model: Module
     
     var body: some View {
         
-        NavigationStack{
+       NavigationStack(path: $contentModel.path ){
             ScrollView{
                 LazyVStack{
                     ForEach(model.content.lessons){ lesson in
-                        NavigationLink {
-                            TestDetailView(model: lesson)
-                        } label: {
+                        NavigationLink(value: lesson) {
                             ContentViewRow(model: lesson)
-                        } 
+                        }
+                        .navigationDestination(for: Lesson.self) { lesson in
+                            ContentDetailView(model: lesson)
+                        }
                     }
                 }
                 .padding()
@@ -31,10 +33,11 @@ struct ContentView: View {
        }
     }
 }
-
+/*
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let previewModel = ContentModel()
         ContentView(model: previewModel.modules[0])
     }
 }
+*/

@@ -1,78 +1,68 @@
 //
-//  ContentDetailView.swift
+//  TestDetailView.swift
 //  LearningApp
 //
-//  Created by Colstin Donaldson on 4/9/23.
-//
-// DELETE THIS 
+//  Created by Colstin Donaldson on 4/14/23.
+
+// MARK: This is the Video screen Showing details on lesson and a next button
+// note the last slide will include a complete button to take the user back home. 
+
 import SwiftUI
 import AVKit
 
 struct ContentDetailView: View {
     
-    @EnvironmentObject var model: ContentModel
-    
+    @EnvironmentObject var viewModel:ContentModel
+    var model:Lesson
     
     var body: some View {
+        let url = URL(string: Constants.videoHostUrl + model.video)
         
-        let lesson = model.currentLesson
-        //let mp4 = "Learn%20Swift%20for%20Beginners%20Lesson%201%20-%20Variables%20(Swift%205%20compatible)-2OZ07fklur8.mp4"
-        let url = URL(string: Constants.videoHostUrl + (lesson?.video ?? ""))
-        //let url = URL(string: Constants.videoHostUrl + mp4)
-        VStack{
-            if url != nil {
+        VStack {
+            if url != nil{
                 VideoPlayer(player: AVPlayer(url: url!))
                     .cornerRadius(20)
             }
             
-            // Description
-            CodeTextView()
+            ScrollView {
+                Text(model.explanation)
+            }
+            .padding(.top)
             
             
-            //Next Lesson Button
-            if model.hasNextLesson() {
-                Button {
-                    model.nextLesson()
-                } label: {
-                    ZStack {
-                        Rectangle()
-                            .frame(height: 48)
-                            .foregroundColor(.green)
-                            .cornerRadius(10)
-                            .shadow(radius: 5)
-                        
-                        Text("Next Lesson \(model.currentModule!.content.lessons[model.currentLessonIndex + 1].title)")
-                            .foregroundColor(.white)
-                            .bold()
-                        
-                    }
-                }
-            } else {
-                Button(){
+            Button {
+               viewModel.gotoHomePage()
+                
+            } label: {
+                ZStack {
+                    Rectangle()
+                        .frame(height: 48)
+                        .foregroundColor(.green)
+                        .cornerRadius(10)
+                        .shadow(radius: 5)
                     
-                } label: {
-                    ZStack {
-                        Rectangle()
-                            .frame(height: 48)
-                            .foregroundColor(.green)
-                            .cornerRadius(10)
-                            .shadow(radius: 5)
-                        
-                        Text("Complete")
-                    }
+                    Text("Next Lesson \(model.title)")
+                        .foregroundColor(.white)
+                        .bold()
+                    
                 }
             }
         }
+        .navigationTitle(model.title)
         .padding()
-        .navigationTitle(lesson?.title ?? "")
-        
     }
 }
 
+
+
+
+/*
 struct ContentDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentDetailView()
-            .environmentObject(ContentModel())
-
+        let previewModel = ContentModel()
+    ContentDetailView_Previews(model:)
+   
     }
 }
+
+*/

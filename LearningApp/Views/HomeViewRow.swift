@@ -10,11 +10,10 @@ import SwiftUI
 struct HomeViewRow: View {
     
     var image:String
-    var title:String
+    var category:String
     var description:String
-    var count:String
+    var lesson:Int
     var time:String
-    //var model:Content
     
     var body: some View {
         ZStack{
@@ -31,7 +30,7 @@ struct HomeViewRow: View {
                 Spacer()
                 
                 VStack(alignment: .leading, spacing: 10){
-                    Text(title)
+                    Text(category)
                         .bold()
                     Text(description)
                         .font(.caption)
@@ -41,7 +40,7 @@ struct HomeViewRow: View {
                         Image(systemName: "text.book.closed")
                             .resizable()
                             .frame(width: 15, height: 15)
-                        Text(count)
+                        Text(String(lesson))
                             .font(Font.system(size: 12))
                         
                         Spacer()
@@ -57,15 +56,18 @@ struct HomeViewRow: View {
             }
             .padding(.horizontal)
         }
+        .foregroundColor(.black)
     }
 }
 
+/*
 struct HomeViewRow_Previews: PreviewProvider {
     static var previews: some View {
-       HomeViewRow(image: "swift", title: "Learn swift", description: "description", count: "20 lesson", time: "20 hours")
-        /*
+    
         let model = ContentModel()
         HomeViewRow(model: model.modules[0])
-         */
+         
     }
 }
+
+*/

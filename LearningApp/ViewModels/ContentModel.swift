@@ -13,23 +13,21 @@ class ContentModel: ObservableObject{
     @Published var modules = [Module]()
     
     @Published var path = NavigationPath()
-    @Published var titles = [String]()
-    @Published var lessonByTitle = [String:Lesson]()
-    
-    
-    // Current Module
-    @Published var currentModule: Module?
-    var currentModuleIndex = 0
-    
-    // Current Lesson
-    @Published var currentLesson:Lesson?
-    var currentLessonIndex = 0
+    @Published var path2 = NavigationPath()
     
     //Current lesson explanation
     @Published var lessonDescription = NSAttributedString()
     var styleData:Data?
     
-    @Published var currentContentSelected:Int?
+    // Current Module
+  //  @Published var currentModule: Module?
+   // var currentModuleIndex = 0
+    
+    // Current Lesson
+   // @Published var currentLesson:Lesson?
+    //var currentLessonIndex = 0
+    
+   // @Published var currentContentSelected:Int?
     
     
     init() {
@@ -37,7 +35,7 @@ class ContentModel: ObservableObject{
     }
     
     
-    // MARK: Darta Methods
+    // MARK: Data Methods
     func getLocalData(){
         //1. Get a URL/ file path to json file .. Bundle.main.url(forResource: "Data", withExtension: "json")
         //2. Read file into a data object...  Data(contentsOf: url)
@@ -72,14 +70,17 @@ class ContentModel: ObservableObject{
         }
     }
     
-    //MARK: Go home button
+    
+    // MARK: Navigation Path methods
     func gotoHomePage() {
            path.removeLast(path.count)
        }
+    func gotoNextItem(_ navItem:Int){
+        path.append(modules[navItem])
+    }
     
+    /*
     
-    
-    // MARK: Module navigation methods
     func beginModule(_ moduleid:Int){
         // Find the  index for this module id
         for i in 0..<modules.count{
@@ -123,6 +124,7 @@ class ContentModel: ObservableObject{
     func hasNextLesson() -> Bool {
         return (currentLessonIndex + 1 < currentModule?.content.lessons.count ?? 0)
     }
+     */
     
     //MARK: Code Styling
     private func addStyling(_ htmlString:String) -> NSAttributedString {
