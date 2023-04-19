@@ -23,6 +23,7 @@
 		D6998AF029E0A2E50054A5D9 /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6998AEF29E0A2E50054A5D9 /* ContentModel.swift */; };
 		D6C5CA3829E9F5B50054CC8B /* ContentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C5CA3729E9F5B50054CC8B /* ContentDetailView.swift */; };
 		D6C5CA3A29EB4A2D0054CC8B /* SwiftTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C5CA3929EB4A2D0054CC8B /* SwiftTestView.swift */; };
+		D6D52A4C29F0896C00EB1AC0 /* RectangleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D52A4B29F0896C00EB1AC0 /* RectangleCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		D6998AEF29E0A2E50054A5D9 /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
 		D6C5CA3729E9F5B50054CC8B /* ContentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailView.swift; sourceTree = "<group>"; };
 		D6C5CA3929EB4A2D0054CC8B /* SwiftTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTestView.swift; sourceTree = "<group>"; };
+		D6D52A4B29F0896C00EB1AC0 /* RectangleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +117,6 @@
 				D678983E29E1FAD800EC6E11 /* ContentView.swift */,
 				D678984029E2046900EC6E11 /* ContentViewRow.swift */,
 				D6C5CA3729E9F5B50054CC8B /* ContentDetailView.swift */,
-				D678986C29E4846B00EC6E11 /* CodeTextView.swift */,
 				D6C5CA3929EB4A2D0054CC8B /* SwiftTestView.swift */,
 			);
 			path = Views;
@@ -150,6 +151,8 @@
 		D6998AED29E0A1B10054A5D9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D678986C29E4846B00EC6E11 /* CodeTextView.swift */,
+				D6D52A4B29F0896C00EB1AC0 /* RectangleCard.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				D678986D29E4846B00EC6E11 /* CodeTextView.swift in Sources */,
 				D6998AF029E0A2E50054A5D9 /* ContentModel.swift in Sources */,
 				D68710CD29E0B10D0048F30E /* Models.swift in Sources */,
+				D6D52A4C29F0896C00EB1AC0 /* RectangleCard.swift in Sources */,
 				D678984A29E35FE000EC6E11 /* Constants.swift in Sources */,
 				D6C5CA3829E9F5B50054CC8B /* ContentDetailView.swift in Sources */,
 			);

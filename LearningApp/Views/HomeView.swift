@@ -21,7 +21,6 @@ struct HomeView: View {
                             ContentView(model: module)
                         } label:  {
                             HomeViewRow(image: module.content.image, category: "Learn \(module.category)", description: module.content.description, lesson: module.content.lessons.count, time: module.content.time)
-                            
                         }
                         .padding(.top)
                         
@@ -30,9 +29,7 @@ struct HomeView: View {
                             SwiftTestView()
                         } label: {
                             HomeViewRow(image: module.test.image, category: "\(module.category) Test", description: module.test.description, lesson: module.test.questions.count, time: module.test.time)
-                             
                         }
-                        
                     }
                 }
             }
@@ -50,3 +47,8 @@ struct HomeView_Previews: PreviewProvider {
 }
 
 
+// MARK: TO DO
+/*
+ 1. Finish swift test section
+ 2. Remote server
+ */

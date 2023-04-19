@@ -14,7 +14,6 @@ class ContentModel: ObservableObject{
     
     @Published var path = NavigationPath()
 
-    
     //Current lesson explanation
     @Published var lessonDescription = NSAttributedString()
     var styleData:Data?
@@ -77,10 +76,6 @@ class ContentModel: ObservableObject{
        }
     func gotoNextItem(_ navItem:Int){
         path.append(modules[navItem])
-    }
-    
-    func gotoNextItem2() {
-        path.append(modules.randomElement()!)
     }
     
     

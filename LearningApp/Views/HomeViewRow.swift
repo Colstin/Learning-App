@@ -19,7 +19,7 @@ struct HomeViewRow: View {
         ZStack{
             Rectangle()
                 .foregroundColor(Color.white)
-                .cornerRadius(30)
+                .cornerRadius(20)
                 .shadow(radius: 5)
                 .aspectRatio(CGSize(width: 335, height: 175), contentMode: .fit)
             HStack{
@@ -57,6 +57,7 @@ struct HomeViewRow: View {
             .padding(.horizontal)
         }
         .foregroundColor(.black)
+        .padding(.horizontal)
     }
 }
 

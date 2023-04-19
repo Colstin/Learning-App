@@ -48,11 +48,7 @@ struct ContentView: View {
                                         
                                     } label: {
                                         ZStack {
-                                            Rectangle()
-                                                .frame(height: 48)
-                                                .foregroundColor(.green)
-                                                .cornerRadius(10)
-                                                .shadow(radius: 5)
+                                            RectangleCard()
                                             
                                             Text("Next Lesson")
                                                 .foregroundColor(.white)
@@ -66,11 +62,7 @@ struct ContentView: View {
                                         contentModel.gotoHomePage()
                                     } label: {
                                         ZStack {
-                                            Rectangle()
-                                                .frame(height: 48)
-                                                .foregroundColor(.green)
-                                                .cornerRadius(10)
-                                                .shadow(radius: 5)
+                                            RectangleCard()
                                             
                                             Text("Complete")
                                                 .foregroundColor(.white)
