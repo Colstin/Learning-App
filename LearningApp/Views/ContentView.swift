@@ -79,7 +79,7 @@ struct ContentView: View {
                 .padding()
             }
             .foregroundColor(.black)
-            .navigationTitle("Learn swift")
+            .navigationTitle("Learn \(model.category)")
             .navigationBarTitleDisplayMode(.inline)
             
        }

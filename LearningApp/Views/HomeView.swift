@@ -27,6 +27,9 @@ struct HomeView: View {
                         
                         NavigationLink {
                             SwiftTestView()
+                                .onAppear(){
+                                    contentModel.beginTest(module.id)
+                                }
                         } label: {
                             HomeViewRow(image: module.test.image, category: "\(module.category) Test", description: module.test.description, lesson: module.test.questions.count, time: module.test.time)
                         }

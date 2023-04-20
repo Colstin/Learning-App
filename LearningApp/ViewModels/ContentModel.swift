@@ -15,12 +15,17 @@ class ContentModel: ObservableObject{
     @Published var path = NavigationPath()
 
     //Current lesson explanation
-    @Published var lessonDescription = NSAttributedString()
+    @Published var codeText = NSAttributedString()
     var styleData:Data?
     
-    // Current Module
-  //  @Published var currentModule: Module?
-   // var currentModuleIndex = 0
+    // Current Question
+    @Published var currentQuestion: Question?
+    var currentQuestionIndex = 0
+    
+    
+     //Current Module
+    @Published var currentModule: Module?
+    var currentModuleIndex = 0
     
     // Current Lesson
    // @Published var currentLesson:Lesson?
@@ -74,12 +79,9 @@ class ContentModel: ObservableObject{
     func gotoHomePage() {
            path.removeLast(path.count)
        }
-    func gotoNextItem(_ navItem:Int){
-        path.append(modules[navItem])
-    }
+
     
     
-    /*
     
     func beginModule(_ moduleid:Int){
         // Find the  index for this module id
@@ -94,7 +96,7 @@ class ContentModel: ObservableObject{
         // Set the current module
         currentModule = modules[currentModuleIndex]
     }
-    
+    /*
     func beginLesson(_ lessonIndex:Int){
         // Check that the lesson index is within range of module lessons
         if lessonIndex < currentModule!.content.lessons.count {
@@ -126,8 +128,24 @@ class ContentModel: ObservableObject{
     }
      */
     
+    func beginTest(_ moduleId:Int){
+        // Set Current Module
+        beginModule(moduleId)
+        
+        // Set current Question
+        currentQuestionIndex = 0
+        
+        if currentModule?.test.questions.count ?? 0 > 0{
+            currentQuestion = currentModule?.test.questions[currentQuestionIndex]
+            
+            // Set Question Context w/ the html SYLE
+            codeText = addStyling(currentQuestion!.content)
+        }
+        
+    }
+    
     //MARK: Code Styling
-    private func addStyling(_ htmlString:String) -> NSAttributedString {
+     func addStyling(_ htmlString:String) -> NSAttributedString {
         var resultsString = NSAttributedString()
         var data = Data()
         //add styling data

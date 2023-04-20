@@ -20,7 +20,7 @@ struct CodeTextView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: UITextView, context: Context) {
-        uiView.attributedText = model.lessonDescription
+        uiView.attributedText = model.codeText
         
         uiView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
     }
