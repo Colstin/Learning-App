@@ -13,7 +13,7 @@ struct SwiftTestView: View {
     @State var selectedAnswerIndex:Int?
     @State var numCorrect = 0
     @State var submitted = false
-    @State var correctAnswer = false
+    @State var correctText:String?
     
     var body: some View {
      
@@ -40,15 +40,34 @@ struct SwiftTestView: View {
                                 
                                 ZStack {
                                     
-                                    if correctAnswer == false {
+                                    if submitted == false {
                                         RectangleCard(color: index == selectedAnswerIndex ? .gray : .white)
                                             
-                                    } else {
-                                        RectangleCard(color: index == selectedAnswerIndex ? .green: .red)
+                                    } else { // When submit button is clicked
+                                        
+                                        // RIGHT ANSWER
+                                        if index == selectedAnswerIndex && index == contentModel.currentQuestion?.correctIndex{
+                                            
+                                            RectangleCard()
+                                        // Wrong Answer
+                                        } else if index == selectedAnswerIndex && index != contentModel.currentQuestion?.correctIndex{
+                                            
+                                            RectangleCard(color: .red)
+                                            
+                                        } else if index == contentModel.currentQuestion?.correctIndex{
+                                            
+                                            RectangleCard(color: .green)
+                                            Image(systemName: "star.fill")
+                                                .padding(.leading, 300)
+                                                .foregroundColor(.yellow)
+                                            
+                                        } else {
+                                            RectangleCard(color: .white)
+                                        }
                                             
                                     }
                                       
-                                    Text(contentModel.currentQuestion!.answers[index])
+                                    Text(contentModel.currentQuestion!.answers[index] )
                                 }
 
                             }
@@ -67,7 +86,6 @@ struct SwiftTestView: View {
                     // increment numCorrect if correct
                     if selectedAnswerIndex == contentModel.currentQuestion!.correctIndex{
                         numCorrect += 1
-                        correctAnswer = true
                     }
                     print(numCorrect)
         
