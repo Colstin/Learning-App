@@ -107,7 +107,7 @@ class ContentModel: ObservableObject{
         
         // set the current lesson
         currentLesson = currentModule!.content.lessons[currentLessonIndex]
-        lessonDescription = addStyling(currentLesson!.explanation)
+        codeText = addStyling(currentLesson!.explanation)
     }
     
     func nextLesson() {
@@ -115,7 +115,7 @@ class ContentModel: ObservableObject{
         currentLessonIndex += 1
         if currentLessonIndex < currentModule!.content.lessons.count{
             currentLesson = currentModule!.content.lessons[currentLessonIndex]
-            lessonDescription = addStyling(currentLesson!.explanation)
+            codeText = addStyling(currentLesson!.explanation)
             
         } else{
             currentLesson = nil
@@ -143,6 +143,19 @@ class ContentModel: ObservableObject{
         }
         
     }
+    
+    func nextQuestion(){
+        currentQuestionIndex += 1
+        
+        if currentQuestionIndex < currentModule!.test.questions.count{
+            currentQuestion = currentModule!.test.questions[currentQuestionIndex]
+            codeText = addStyling(currentQuestion!.content)
+        } else {
+            currentQuestionIndex = 0
+            currentQuestion = nil
+        }
+    }
+    
     
     //MARK: Code Styling
      func addStyling(_ htmlString:String) -> NSAttributedString {

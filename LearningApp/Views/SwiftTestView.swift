@@ -17,7 +17,7 @@ struct SwiftTestView: View {
     
     var body: some View {
      
-      
+        
         if contentModel.currentQuestion != nil {
             VStack(alignment: .leading){
                 // Q Number
@@ -64,12 +64,10 @@ struct SwiftTestView: View {
                                         } else {
                                             RectangleCard(color: .white)
                                         }
-                                            
                                     }
                                       
                                     Text(contentModel.currentQuestion!.answers[index] )
                                 }
-
                             }
                             .disabled(submitted)
                         }
@@ -80,21 +78,34 @@ struct SwiftTestView: View {
                 
                 // MARK: Submit
                 Button {
-                    //Disable submit button when clicked
-                    submitted = true
                     
-                    // increment numCorrect if correct
-                    if selectedAnswerIndex == contentModel.currentQuestion!.correctIndex{
-                        numCorrect += 1
+                    // Check if answer has been submitted
+                    if submitted == true{
+                        
+                        // if answer has been submitted, move to next question
+                        contentModel.nextQuestion()
+                        
+                        // reset properties.
+                        submitted = false
+                        selectedAnswerIndex = nil
+                        
+                        
+                    } else { // Submit answer
+                        
+                        //Disable submit button when clicked
+                        submitted = true
+                        
+                        // increment numCorrect if correct
+                        if selectedAnswerIndex == contentModel.currentQuestion!.correctIndex{
+                            numCorrect += 1
+                        }
                     }
-                    print(numCorrect)
         
                 } label: {
                     ZStack{
                         RectangleCard(color: selectedAnswerIndex == nil ? .gray: .green)
-                        
-                        Text("Submit")
-                           
+                       
+                        Text(submitButtonText)
                             .bold()
                             .foregroundColor(.white)
                     }
@@ -107,7 +118,19 @@ struct SwiftTestView: View {
             // Wierd glitch, add this so the Vstack pops up
             ProgressView()
         }
-
+    }
+    
+    // MARK: Submit Button Text: Computed Property
+    var submitButtonText:String {
+        if submitted == true{
+            if contentModel.currentQuestionIndex + 1 == contentModel.currentModule!.test.questions.count {
+                return "Finish"
+            } else {
+                return "Next"
+            }
+        } else {
+            return "Submit"
+        }
     }
 }
 
