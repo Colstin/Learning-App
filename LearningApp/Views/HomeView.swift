@@ -52,6 +52,7 @@ struct HomeView_Previews: PreviewProvider {
 
 // MARK: TO DO
 /*
- 1. Finish swift test section
- 2. Remote server
+ 1.  Fiddle with the Navigation Stack 
+ 2. Finish swift test section
+ 3. Remote server
  */

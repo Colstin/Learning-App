@@ -115,8 +115,9 @@ struct SwiftTestView: View {
             }
             .navigationTitle("Swift Test")
         } else{
-            // Wierd glitch, add this so the Vstack pops up
-            ProgressView()
+            // Wierd glitch, add ProgressView() so the Vstack pops up
+            TestResultView(numCorrect: numCorrect)
+            
         }
     }
     

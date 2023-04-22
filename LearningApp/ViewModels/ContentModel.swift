@@ -21,11 +21,16 @@ class ContentModel: ObservableObject{
     // Current Question
     @Published var currentQuestion: Question?
     var currentQuestionIndex = 0
+   
     
     
      //Current Module
     @Published var currentModule: Module?
     var currentModuleIndex = 0
+    
+    // Current Selected Test
+    //@Published var currentTestSelection:Int?
+    
     
     // Current Lesson
    // @Published var currentLesson:Lesson?
@@ -36,6 +41,7 @@ class ContentModel: ObservableObject{
     
     init() {
         getLocalData()
+        
     }
     
     
