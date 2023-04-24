@@ -40,7 +40,11 @@ class ContentModel: ObservableObject{
     
     
     init() {
+        // Parse local json data
         getLocalData()
+        
+        // Download remote json file and parse data
+        getRemoteData()
         
     }
     
@@ -80,6 +84,45 @@ class ContentModel: ObservableObject{
         }
     }
     
+    func getRemoteData(){
+        let urlString = "https://colstin.github.io/LearningApp-data/data2.json"
+        
+        let url = URL(string: urlString)
+        
+        guard url != nil else{
+            // Couldn't create url
+            return
+        }
+        
+        // Create a URLRequest object
+        let request = URLRequest(url: url!)
+        
+        //Get the session and kick off the task
+        let session = URLSession.shared
+        
+        let dataTask = session.dataTask(with: request) { data, response, error in
+            // Check if there's an error
+            guard error == nil else {
+                return
+            }
+            // Create json Decoder
+            let decoder = JSONDecoder()
+            
+            do{
+                //Decode
+                let modules = try decoder.decode([Module].self, from: data!)
+                
+                // append parsed modules into modules property
+                self.modules += modules
+
+            } catch{
+                print("\(error) couldn't parse json")
+            }
+            
+        }
+        // Kick off Data Task very important
+        dataTask.resume()
+    }
     
     // MARK: Navigation Path methods
     func gotoHomePage() {
