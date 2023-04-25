@@ -61,3 +61,10 @@ struct HomeView_Previews: PreviewProvider {
  Finally, both solutions do work and nothing at the time of writing this is deprecated. NavigationStack tho is the current update to the navigationView. The Test way is the more supior option due to the fact we can simply use ContentModel which is the view model and then access everything from a @Environment Object This is simply my prefered way as its simple.
  
  */
+
+
+/* MARK: Design tips
+ When Designing start w/ hardcoded structure get everything set
+ then start makeing it dynamic.
+ 
+ */

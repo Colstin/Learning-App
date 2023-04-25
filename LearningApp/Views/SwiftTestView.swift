@@ -13,7 +13,7 @@ struct SwiftTestView: View {
     @State var selectedAnswerIndex:Int?
     @State var numCorrect = 0
     @State var submitted = false
-    @State var correctText:String?
+    //@State var correctText:String?
     
     var body: some View {
      
