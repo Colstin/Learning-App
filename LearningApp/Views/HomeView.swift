@@ -38,7 +38,9 @@ struct HomeView: View {
             }
             .navigationTitle("Choose Your Course!")
             .navigationBarTitleDisplayMode(.inline)
+           
        }
+       .navigationBarBackButtonHidden()
     }
 }
 
@@ -50,9 +52,12 @@ struct HomeView_Previews: PreviewProvider {
 }
 
 
-// MARK: TO DO
+// MARK: Conclusion
 /*
- 1. Fiddle with the Navigation Stack
- 2. Finish Swift Test functionality
- 3. Remote server
+ 1. Main thing I would Like to have done is to have had a NavigationStack from the very beginning. This would've made navigating different views eaiser but it would make navigating the lesson content more difficult I would argue a lot more difficult. Tests category use this approach it is cleaner to do.
+ 
+    I would probably reccommend in the future to simply start w/ the navigationStack approach and make the code inside the button tabViews more complicated. I would rather focus my attention on that part rather than just navigate a simple screen which the Navpath easily fixes.
+ 
+ Finally, both solutions do work and nothing at the time of writing this is deprecated. NavigationStack tho is the current update to the navigationView. The Test way is the more supior option due to the fact we can simply use ContentModel which is the view model and then access everything from a @Environment Object This is simply my prefered way as its simple.
+ 
  */
