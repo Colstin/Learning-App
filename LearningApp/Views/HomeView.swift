@@ -68,3 +68,17 @@ struct HomeView_Previews: PreviewProvider {
  then start makeing it dynamic.
  
  */
+
+/* markdown photo
+ <div align="center">
+ <img width="220" src="" alt="" title="">
+ &nbsp;
+ &nbsp;
+ &nbsp;
+ <img width="205" src="" alt="" title="">
+ &nbsp;
+ &nbsp;
+ &nbsp;
+ <img width="192" src="" alt="" title="">
+ </div>
+ */
