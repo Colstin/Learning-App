@@ -3,8 +3,9 @@
 ** Version 1.0.0 **
 
 - Learning App
-- File structure uses the MVVM architecture pattern. 
-- Data is stored on a local json file.
+- User-interface uses courses and tests that keep track of a users score in order to help develop knowledge in Swift and SwiftUI.
+- Object Oriented Code using the MVVM Architecture pattern. 
+- Data is parsed on a local and a remote repository.
 - ForEach, ScrollViews, and NavigationLink to create the user interface 
 
 ### Section 1: The Course View 
