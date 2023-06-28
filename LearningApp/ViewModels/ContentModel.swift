@@ -7,8 +7,13 @@
 
 import Foundation
 import SwiftUI
+import Firebase
+
 
 class ContentModel: ObservableObject{
+    
+    let db = Firestore.firestore()
+    
     // List of Modules
     @Published var modules = [Module]()
     
@@ -41,10 +46,63 @@ class ContentModel: ObservableObject{
     
     init() {
         // Parse local json data
-        getLocalData()
+        // getLocalData()
         
         // Download remote json file and parse data
-        getRemoteData()
+        //getRemoteData()
+        getDatabaseModules()
+        
+    }
+    
+    func getDatabaseModules(){
+        let collection = db.collection("modules")
+        
+        collection.getDocuments { querySnapshot, error in
+            
+            if error == nil && querySnapshot != nil {
+                
+                // Create array for the modules
+                var modules = [Module]()
+                
+                // loop throught the documents
+                for doc in querySnapshot!.documents {
+                    
+                    // Create a new module instance
+                    var m = Module()
+                    
+                    // Parse our the values from the document into the module instance
+                    m.id = doc["id"] as? Int ?? UUID().hashValue
+                    m.category = doc["category"] as? String ?? ""
+                    
+                    
+                    // MARK: Parse the Lesson content
+                    let contentMap = doc["content"] as! [String:Any]
+                    
+                    m.content.id = contentMap["id"] as? Int ?? 0
+                    m.content.description = contentMap["description"] as? String ?? ""
+                    m.content.image = contentMap["image"] as? String ?? ""
+                    m.content.time = contentMap["time"] as? String ?? ""
+                    
+                    // MARK: Parse the Test content
+                    let testMap = doc["test"] as! [String:Any]
+                    
+                    m.test.id = testMap["id"] as? Int ?? 0
+                    m.test.description = testMap["description"] as? String ?? ""
+                    m.test.image = testMap["image"] as? String ?? ""
+                    m.test.time = testMap["time"] as? String ?? ""
+                    
+                    
+                    
+                    // Add it to our array
+                    modules.append(m)
+                }
+                
+                // Assign our Moduls to the published property
+                DispatchQueue.main.async {
+                    self.modules = modules
+                }
+            }
+        }
         
     }
     

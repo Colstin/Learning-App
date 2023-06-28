@@ -82,3 +82,9 @@ struct HomeView_Previews: PreviewProvider {
  <img width="192" src="" alt="" title="">
  </div>
  */
+
+
+/* MARK: Notes
+ .hash can make a number version of a string 
+ 
+ */

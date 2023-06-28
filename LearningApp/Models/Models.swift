@@ -9,46 +9,46 @@ import Foundation
 
 struct Module: Decodable, Identifiable, Hashable{
     
-    var id:Int
-    var category:String
-    var content:Content
-    var test:Test
+    var id:Int = 0
+    var category:String = ""
+    var content:Content = Content()
+    var test:Test = Test()
 }
 
 struct Content: Decodable, Identifiable, Hashable{
     
-    var id:Int
-    var image:String
-    var time:String
-    var description:String
-    var lessons:[Lesson]
+    var id:Int = 0
+    var image:String = ""
+    var time:String = ""
+    var description:String = ""
+    var lessons:[Lesson] = [Lesson]()
 }
 
 
 struct Lesson: Decodable, Identifiable, Hashable{
     
-    var id:Int
-    var title:String
-    var video:String
-    var duration:String
-    var explanation:String
+    var id:Int = 0
+    var title:String = ""
+    var video:String = ""
+    var duration:String = ""
+    var explanation:String = ""
 }
 
 struct Test: Decodable, Identifiable, Hashable{
     
-    var id:Int
-    var image:String
-    var time:String
-    var description:String
-    var questions:[Question]
+    var id:Int = 0
+    var image:String = ""
+    var time:String = ""
+    var description:String = ""
+    var questions:[Question] = [Question]()
 }
 
 struct Question: Decodable, Identifiable, Hashable{
     
-    var id:Int
-    var content:String
-    var correctIndex:Int
-    var answers:[String]
+    var id:Int = 0
+    var content:String = ""
+    var correctIndex:Int = 0
+    var answers:[String] = [String]()
 }
 
 
